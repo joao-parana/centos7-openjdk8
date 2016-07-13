@@ -1,5 +1,10 @@
 FROM parana/centos7
-MAINTAINER João Paraná - joao.parana@gmail.com
+# Based on centos:7.2.1511 Public Image
+
+MAINTAINER "João Antonio Ferreira" <joao.parana@gmail.com>`
+
+ENV REFRESHED_AT 2016-07-13
+
 RUN yum update -y \
     && yum -y install unzip \
     && yum -y install java-1.8.0-openjdk-devel \
@@ -7,7 +12,7 @@ RUN yum update -y \
 ENV JAVA_HOME /usr/lib/jvm/java-1.8.0
 ENV PATH "$PATH":/${JAVA_HOME}/bin:.:
 
-ENV DOWNLOAD_H2 https://www.h2database.com/h2-2014-04-05.zip
+ENV DOWNLOAD_H2 http://www.h2database.com/h2-2014-04-05.zip
 ENV DATA_DIR /opt/h2-data
 
 RUN curl ${DOWNLOAD_H2} -o h2.zip \
