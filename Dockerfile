@@ -6,3 +6,15 @@ RUN yum update -y \
     && yum clean all
 ENV JAVA_HOME /usr/lib/jvm/java-1.8.0
 ENV PATH "$PATH":/${JAVA_HOME}/bin:.:
+
+ENV DOWNLOAD_H2 https://www.h2database.com/h2-2014-04-05.zip
+ENV DATA_DIR /opt/h2-data
+
+RUN curl ${DOWNLOAD_H2} -o h2.zip \
+    && unzip h2.zip -d /usr/local/ \
+    && rm h2.zip \
+    && mkdir -p ${DATA_DIR}
+
+EXPOSE 83 1521
+
+RUN echo "java -cp /opt/h2/bin/h2*.jar org.h2.tools.Server -web -webAllowOthers -webPort 83 -tcp -tcpAllowOthers -tcpPort 1521 -baseDir ${DATA_DIR}" > /start-h2.sh && chmod a+rx /start-h2.sh && echo "Execute /start-h2.sh para iniciar o Banco de Dados na porta 1521 " 
