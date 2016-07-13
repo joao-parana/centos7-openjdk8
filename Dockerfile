@@ -23,8 +23,8 @@ RUN curl ${DOWNLOAD_H2} -o h2.zip \
 
 EXPOSE 83 1521
 
-RUN ls -la /usr/local/h2/bin 
-    && ls -la / 
-    && echo "java -cp /usr/local/h2/bin/h2-${H2_VERSION}.jar org.h2.tools.Server -web -webAllowOthers -webPort 83 -tcp -tcpAllowOthers -tcpPort 1521 -baseDir ${DATA_DIR}" > /start-h2.sh 
-    && chmod a+rx /start-h2.sh 
-    && echo "Execute /start-h2.sh para iniciar o Banco de Dados na porta 1521 " 
+RUN ls -la /usr/local/h2/bin \
+    && ls -la / \
+    && echo "java -cp /usr/local/h2/bin/h2-${H2_VERSION}.jar org.h2.tools.Server -web -webAllowOthers -webPort 83 -tcp -tcpAllowOthers -tcpPort 1521 -baseDir ${DATA_DIR}" > /start-h2.sh \
+    && chmod a+rx /start-h2.sh \
+    && echo "Execute /start-h2.sh para iniciar o Banco de Dados na porta 1521 "
