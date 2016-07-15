@@ -3,7 +3,7 @@ FROM parana/centos7
 
 MAINTAINER "João Antonio Ferreira" <joao.parana@gmail.com>`
 
-ENV REFRESHED_AT 2016-07-14
+ENV REFRESHED_AT 2016-07-15
 
 # RUN yum update -y 
 RUN yum -y install unzip \
