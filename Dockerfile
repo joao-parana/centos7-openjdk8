@@ -3,11 +3,10 @@ FROM parana/centos7
 
 MAINTAINER "João Antonio Ferreira" <joao.parana@gmail.com>`
 
-ENV REFRESHED_AT 2016-07-15
+ENV REFRESHED_AT 2016-08-12
 
 # RUN yum update -y 
-RUN yum -y install unzip \
-    && yum -y install java-1.8.0-openjdk-devel \
+RUN yum -y install java-1.8.0-openjdk-devel \
     && yum clean all
 
 ENV JAVA_HOME /usr/lib/jvm/java-1.8.0
